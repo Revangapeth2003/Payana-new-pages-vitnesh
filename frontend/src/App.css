@@ -1,0 +1,206 @@
+/* Home container */
+.home-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Scroll Down Button */
+.scroll-down-btn {
+  position: fixed;
+  top: 85vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(61, 146, 179, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  font-family: sans-serif;
+  font-weight: 500;
+}
+
+.scroll-down-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.scroll-down-btn.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(20px);
+}
+
+.scroll-down-btn:hover {
+  background: rgba(39, 174, 96, 0.9);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-down-btn:active {
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Scroll Icon Animation */
+.scroll-icon {
+  animation: bounce 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateX(-50%) translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Scroll to Top Button */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #3d92b3;
+  border: none;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.scroll-top-btn.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+}
+
+.scroll-top-btn:hover {
+  background: #27ae60;
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-icon.rotated {
+  transform: rotate(180deg);
+}
+
+/* Page container for other routes */
+.page-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.page-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-content h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.page-content p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .scroll-down-btn {
+    padding: 12px 20px;
+    font-size: 0.8rem;
+    top: 80vh;
+  }
+  
+  .scroll-top-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .page-content h1 {
+    font-size: 2rem;
+  }
+  
+  .page-content {
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-down-btn span {
+    display: none;
+  }
+  
+  .scroll-down-btn {
+    padding: 12px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+  }
+  
+  .page-content h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Smooth scroll behavior for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure proper z-index layering */
+.total {
+  position: relative;
+}
